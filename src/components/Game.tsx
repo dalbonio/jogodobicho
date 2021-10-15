@@ -4,19 +4,31 @@ import React, { useState } from 'react';
 import { Button, Flex, Select, Text, Box, Input } from "@chakra-ui/react";
 import ConnectToWalletButton from "./ConnectToWalletButton";
 import BetCard from "./BetCard";
+import BichosGrid from "./BichosGrid"
+import {chains, ChainsLayout} from "../chains/chains"
 import "@fontsource/roboto";
 
-export default function Game() {
 
-    const [estimatedProfit, setEstimatedProfit] = useState(parseFloat("0").toFixed(6));
+export default function Game(props: {network: ChainsLayout} ) {
 
-    const handleEstimatedProfit = (e: { target: { value: React.SetStateAction<string>; }; }) => {
-        const value = e.target.value.toString();
-        if( value === "" ){
-            setEstimatedProfit(parseFloat("0").toFixed(6))
+    const [betComponents, setBetComponents] = useState([true, false, false]);
+    const [betType, setBetType] = useState(1)
+    const [betValue, setBetValue] = useState("")
+
+    const handleMenuClick = (e: React.MouseEvent ) => {
+        const target = e.target as any;
+        const id = target.id;
+        if( id === "btnBicho" ){
+            setBetComponents([true, false, false])
+            setBetType(1)
         }
-        else{
-            setEstimatedProfit(`${(parseFloat(value) * 60).toFixed(6)}`)
+        else if(id === "btnDezena" ){
+            setBetComponents([false, true, false])
+            setBetType(2)
+        }
+        else if(id === "btnCentena"){
+            setBetComponents([false, false ,true])
+            setBetType(3)
         }
     }
 
@@ -25,7 +37,7 @@ export default function Game() {
     <Flex
       flexDirection="column"
       alignItems="center"
-      w="50%"
+      w="60%"
       marginTop="5%"
       bg="gray.800"
     >
@@ -33,9 +45,9 @@ export default function Game() {
             w="50%"
             flexDirection="row"
             justifyContent="space-between">
-            <Text 
-                color="white"
+            <Button 
                 border="1px solid transparent"
+                id="btnBicho"
                 borderColor="white"
                 _hover={{
                     border: "1px",
@@ -43,14 +55,15 @@ export default function Game() {
                     borderColor: "blue.400",
                     backgroundColor: "gray.700",
                 }}
+                onClick={handleMenuClick}
                 borderRadius="xl"
                 m="1px"
                 px={3}
-            >Bicho</Text>
-            <Text 
-                color="white"
+            >Bicho</Button>
+            <Button 
                 border="1px solid transparent"
                 borderColor="white"
+                id="btnDezena"
                 _hover={{
                     border: "1px",
                     borderStyle: "solid",
@@ -58,13 +71,14 @@ export default function Game() {
                     backgroundColor: "gray.700",
                 }}
                 borderRadius="xl"
+                onClick={handleMenuClick}
                 m="1px"
                 px={3}
-            >Dezena</Text>
-            <Text 
-                color="white"
+            >Dezena</Button>
+            <Button 
                 border="1px solid transparent"
                 borderColor="white"
+                id="btnCentena"
                 _hover={{
                     border: "1px",
                     borderStyle: "solid",
@@ -72,11 +86,21 @@ export default function Game() {
                     backgroundColor: "gray.700",
                 }}
                 borderRadius="xl"
+                onClick={handleMenuClick}
                 m="1px"
                 px={3}
-            >Centena</Text>
+            >Centena</Button>
         </Flex>
-        <BetCard name="Dezena"/>
+        <Box display={betComponents[0] ? "flex" : "none"}>
+            <BichosGrid betType={betType} setBetValue={setBetValue} betValue={betValue} network={props.network} />
+        </Box>
+        <Box display={betComponents[1] ? "flex" : "none"}>
+            <BetCard name="Dezena" betValue={""} betPlaceholder="01" multiplier="60" betType={betType} setBetValue={setBetValue} network={props.network}/>
+        </Box>
+        <Box display={betComponents[2] ? "flex" : "none"}>
+            <BetCard name="Centena" betValue={""} betPlaceholder="001" multiplier="600" betType={betType} setBetValue={setBetValue} network={props.network}/>
+        </Box>
+
     </Flex>
   )
 }

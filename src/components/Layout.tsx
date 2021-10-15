@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
     <Flex
       flexDirection="column"
       alignItems="center"
-      h="100vh"
+      h="100vw"
       bg="gray.800"
     >
       {children}

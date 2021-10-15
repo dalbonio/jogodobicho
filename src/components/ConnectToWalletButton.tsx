@@ -1,14 +1,18 @@
 // ConnectButton.tsx
 import { Button, Box, Text } from "@chakra-ui/react";
+import React, { useState, useEffect } from 'react';
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
+import Web3 from 'web3';
 import Identicon from "./Identicon";
+import {chains, ChainsLayout} from "../chains/chains"
 
-export default function ConnectToWalletButton() {
+export default function ConnectToWalletButton(props: {network: ChainsLayout} ) {
   const {activateBrowserWallet, account } = useEthers();
   const etherBalance = useEtherBalance(account);
+  const web3 = new Web3(window.ethereum);
 
-  const handleConnectWallet = () => {
+  const handleConnectWallet = async () => {
     activateBrowserWallet();
   }
 
@@ -22,7 +26,7 @@ export default function ConnectToWalletButton() {
     >
       <Box px="3">
         <Text color="white" fontSize="md">
-          {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
+          {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} {props.network.currency}
         </Text>
       </Box>
       <Button
