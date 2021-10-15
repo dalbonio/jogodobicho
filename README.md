@@ -2,10 +2,10 @@
 
 This project is a prototype of a brazillian gamble game called "Jogo do Bicho". The game mechanics are well explained in the wikipedia page [Jogo_do_Bicho](https://en.wikipedia.org/wiki/Jogo_do_bicho)
 
-The rewards are not quoted in the wikipedia page, so I will put them here.
-Reward to animal gamble: 18x
-Reward to ten gamble: 60x
-Reward to hundred gamble: 600x
+The rewards are not quoted in the wikipedia page, so I will put them here.\
+Reward to animal gamble: 18x\
+Reward to ten gamble: 60x\
+Reward to hundred gamble: 600x\
 
 
 ## Random Number Generation
