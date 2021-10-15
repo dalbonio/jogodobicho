@@ -5,7 +5,7 @@ This project is a prototype of a brazillian gamble game called "Jogo do Bicho". 
 The rewards are not quoted in the wikipedia page, so I will put them here.\
 Reward to animal gamble: 18x\
 Reward to ten gamble: 60x\
-Reward to hundred gamble: 600x\
+Reward to hundred gamble: 600x
 
 
 ## Random Number Generation
@@ -14,8 +14,8 @@ The random number is generated using chainlink VRF contract.
 
 ## Solidity
 
-The related contract was created using Truffle development kit, and is in the smartcontracts folder. 
-There are also contracts deployed in `Polygon Mumbai Testnet` and `Rinkeby Ethereum Testnet` with remix. 
+The related contract was created using Truffle development kit, and is in the smartcontracts folder.\
+There are also contracts deployed in `Polygon Mumbai Testnet` and `Rinkeby Ethereum Testnet` with remix.\ 
 The reason the contracts are not in mainnets is that i have not enough money to sustain a gamble game by myself.
 
 ## Available Scripts Website
