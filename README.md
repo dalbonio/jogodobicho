@@ -14,10 +14,11 @@ The random number is generated using chainlink VRF contract.
 
 ## Solidity
 
-The related contract is in the smartcontracts folder with some tests, and also deployed in polygon mubai testnet and rinkeby ethereum testnet with remix. The reason the contracts are not in mainnets is that i have not enough money to sustain a gamble game by myself.
+The related contract was created using Truffle development kit, and is in the smartcontracts folder. 
+There are also contracts deployed in `Polygon Mumbai Testnet` and `Rinkeby Ethereum Testnet` with remix. 
+The reason the contracts are not in mainnets is that i have not enough money to sustain a gamble game by myself.
 
-## Available Scripts
-
+## Available Scripts Website
 This project was bootstrapped with Create-React-App, so you can run:
 
 ### `npm start`
@@ -25,7 +26,13 @@ This project was bootstrapped with Create-React-App, so you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
+## Available Scripts Website
+The contracts were created using Truffle, so you can run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `truffle compile`
+
+Compile all the used contracts
+
+### `truffle test`
+
+Launches the test runner in the interactive watch mode.
