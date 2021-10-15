@@ -15,7 +15,7 @@ The random number is generated using chainlink VRF contract.
 ## Solidity
 
 The related contract was created using Truffle development kit, and is in the smartcontracts folder.\
-There are also contracts deployed in `Polygon Mumbai Testnet` and `Rinkeby Ethereum Testnet` with remix.\ 
+There are also contracts deployed in `Polygon Mumbai Testnet` and `Rinkeby Ethereum Testnet` with remix. \ 
 The reason the contracts are not in mainnets is that i have not enough money to sustain a gamble game by myself.
 
 ## Available Scripts Website
