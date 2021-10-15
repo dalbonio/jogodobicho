@@ -1,4 +1,4 @@
-# Jogo do Bicho blockchain
+# Jogo do Bicho Blockchain
 
 This project is a prototype of a brazillian gamble game called "Jogo do Bicho". The game mechanics are well explained in the wikipedia page [Jogo_do_Bicho](https://en.wikipedia.org/wiki/Jogo_do_bicho)
 
